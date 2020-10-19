@@ -14,8 +14,8 @@ public class Aop {
     private static final Logger LOGGER = LoggerFactory.getLogger(OrderFacade.class);
 
     @Before("execution(* patterns2.patterns2.fasada.api.OrderFacade.processOrder(..))"
-    )
-    public void logEvent(){
-        LOGGER.info("Logging the event");
+        + "&& args(dto, userId)")
+    public void logEvent(OrderDto dto, Long userId){
+        LOGGER.info("*Logging the event* args: userId: "+userId+", Item size: "+dto.getItems().size());
     }
 }
