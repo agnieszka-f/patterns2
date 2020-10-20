@@ -12,7 +12,6 @@ import patterns2.patterns2.fasada.api.OrderProcessingException;
 
 import java.math.BigDecimal;
 
-import static org.junit.Assert.*;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class ShopServiceTest {
