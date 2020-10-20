@@ -9,6 +9,7 @@ public class Workers {
             {"75110387628", "Clara", "Lanson" }
     };
     private double[] salaries = {4500.00, 3700.00, 4350.00, 9000.00, 6200.00};
+
     public String getWorker(int n){
         if(n > salaries.length){
             return "";

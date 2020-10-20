@@ -35,7 +35,7 @@ public class Employee {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (getClass() != o.getClass()) return false;
+        if (!(o instanceof Employee)) return false;
         Employee employee = (Employee) o;
         return peselId !=null ? peselId.equals(employee.peselId) : employee.peselId==null;
     }
@@ -43,5 +43,15 @@ public class Employee {
     @Override
     public int hashCode() {
         return peselId != null ? peselId.hashCode():0;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "peselId='" + peselId + '\'' +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", baseSalary=" + baseSalary +
+                '}';
     }
 }
