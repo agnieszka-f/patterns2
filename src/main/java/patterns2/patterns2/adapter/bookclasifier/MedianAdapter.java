@@ -1,6 +1,6 @@
 package patterns2.patterns2.adapter.bookclasifier;
 
-import patterns2.patterns2.adapter.bookclasifier.librarya.Book;
+import patterns2.patterns2.adapter.bookclasifier.librarya.BookA;
 
 import patterns2.patterns2.adapter.bookclasifier.librarya.Classifier;
 import patterns2.patterns2.adapter.bookclasifier.libraryb.*;
@@ -12,10 +12,12 @@ import java.util.Set;
 public class MedianAdapter extends MedianaAdaptee implements Classifier {
 
     @Override
-    public int publicationYearMediana(Set<Book> bookSet) {
-       Map<BookSignature, patterns2.patterns2.adapter.bookclasifier.libraryb.Book> bookMap = new HashMap<>();
-            for(Book book : bookSet){
-                bookMap.put(new BookSignature(book.getSignature()), new patterns2.patterns2.adapter.bookclasifier.libraryb.Book(book.getAuthor(),book.getTitle(),book.getPublicationYear()));
+    public int publicationYearMediana(Set<BookA> bookASet) {
+       Map<BookSignature, BookB> bookMap = new HashMap<>();
+            for(BookA bookA : bookASet){
+                BookB bookB = new BookB(bookA.getAuthor(), bookA.getTitle(), bookA.getPublicationYear());
+                BookSignature bookSignature = new BookSignature(bookA.getSignature());
+                bookMap.put(bookSignature, bookB );
             }
        return medianaPublicationYear(bookMap);
     }
